@@ -15,12 +15,19 @@ nav {
 main {
   display: flex;
   justify-content: center;
+  margin-bottom: 2em;
 }
 
 footer {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  padding: .5em;
+  padding: 0.5em;
   text-align: center;
+}
+
+.movie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }

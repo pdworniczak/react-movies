@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom';
 import Link from '@material-ui/core/Link';
 
-import Movies from './movies';
+import Movies from './movie';
 
 function App() {
   return (
