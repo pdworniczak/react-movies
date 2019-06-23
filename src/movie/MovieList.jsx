@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import Card from '@material-ui/core/Card';
+import { withRouter } from 'react-router-dom';
 
-export default ({ movies }) => {
+export default withRouter(({ movies, history }) => {
   return (
     <Fragment>
       {movies.map((movie, index) => (
@@ -10,7 +11,13 @@ export default ({ movies }) => {
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between'
+            justifyContent: 'space-between',
+            cursor: 'poiner',
+            marginBottom: '.5em'
+          }}
+          onClick={() => {
+            console.log(movie.imdbID);
+            history.push(`movie/${movie.imdbID}`);
           }}
         >
           <span>
@@ -21,4 +28,4 @@ export default ({ movies }) => {
       ))}
     </Fragment>
   );
-};
+});

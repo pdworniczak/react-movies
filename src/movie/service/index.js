@@ -6,7 +6,6 @@ const MOVIE_API_URL = 'http://www.omdbapi.com';
 async function get(params) {
   const queryParams = qs.stringify({
     apikey: process.env.REACT_APP_MOVIE_API_KEY,
-    page: 1,
     ...params
   });
 
