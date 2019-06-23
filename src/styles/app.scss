@@ -6,19 +6,22 @@ body {
 header {
   display: flex;
   justify-content: center;
+  padding: 1em 0;
 }
 
 nav {
   display: flex;
   justify-content: center;
-  background-color: #6171fd;
-  box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
+  padding: 0.5em 0;
+
+  * {
+    margin: 0 1em;
+  }
 
   & a {
-    margin: 0 2em;
-    color: white;
-    box-shadow: 4px 4px 5px 0px rgba(0, 0, 0, 0.75);
-    padding: 1em;
+    background-color: #FF7429;
+    box-shadow: 4px 4px 10px 4px rgba(0, 0, 0, 0.75);
+    padding: .2em 2em;
   }
 }
 
@@ -40,4 +43,22 @@ footer {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.backgroundGradient {
+  background-image: linear-gradient(
+    to right,
+    #fb9e25,
+    #feae22,
+    #ffbe20,
+    #ffce22,
+    #ffde28,
+    #fae627,
+    #f5ef28,
+    #eef72b,
+    #e0f927,
+    #d1fb25,
+    #c1fd25,
+    #b0ff29
+  );
 }

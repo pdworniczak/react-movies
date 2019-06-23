@@ -1,11 +1,11 @@
-const initialSearchParams = { searchParams: { page: 1 } };
+const initialSearchParams = { page: 1 };
 
 const reducerFunc = {
   setSearchParams: (state, searchParams) => {
     return { ...state, searchParams: { ...searchParams } };
   },
   clearSearchParams: state => {
-    return { ...state, ...initialSearchParams };
+    return { ...state, searchParams: { ...initialSearchParams } };
   }
 };
 

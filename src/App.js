@@ -8,35 +8,38 @@ import {
 import Link from '@material-ui/core/Link';
 
 import Movies from './movie';
-import Movie from './movie/Movie'
+import Movie from './movie/Movie';
 
 function App() {
   return (
     <Router>
-      <header>
-        <Link component={RouterLink} to="/">
+      <header className="backgroundGradient">
+        <Link style={{ display: 'flex' }} component={RouterLink} to="/">
+          <img
+            style={{ height: '5em', marginRight: '2em' }}
+            src="movie.png"
+            alt=""
+          />
           <h1>Movie Search</h1>
         </Link>
       </header>
       <nav>
-        <Link component={RouterLink} to="/">
-          Home
-        </Link>
-        <Link component={RouterLink} to="/movie">
-          Movies
-        </Link>
-        <Link component={RouterLink} to="/test">
-          Test
-        </Link>
+        <span>
+          <Link component={RouterLink} to="/">
+            Home
+          </Link>
+        </span>
+        <span>
+          <Link component={RouterLink} to="/movie">
+            Movies
+          </Link>
+        </span>
       </nav>
       <main>
         <Switch>
           <Route path="/" exact />
           <Route path="/movie" exact component={Movies} />
-          <Route
-            path="/movie/:imdbID"
-            component={Movie}
-          />
+          <Route path="/movie/:imdbID" component={Movie} />
           <Route path="/test1/" component={() => <div>test</div>} />
         </Switch>
       </main>
