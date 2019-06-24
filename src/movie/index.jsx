@@ -48,7 +48,7 @@ function Movies() {
       <header>Movies</header>
       <section>
         <SearchMovie fetchMovies={fetchMovies} clear={() => setMovies([])} />
-        {loading && <div>Loading...</div>}
+        {loading && <div className="vcenter">Loading...</div>}
         <MovieList movies={movies} />
         <MoviesPagination hasMovies={movies.length} fetchMovies={fetchMovies} totalResults={totalResults} />
         <div />
