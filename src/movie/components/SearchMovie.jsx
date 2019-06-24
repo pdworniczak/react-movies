@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
@@ -6,6 +6,8 @@ import MenuItem from '@material-ui/core/MenuItem';
 
 export default props => {
   const { fetchMovies, clear } = props;
+
+  const [valid, setValid] = useState(true);
   const { searchParams } = useSelector(state => state.movies);
   const dispatch = useDispatch();
 
@@ -15,19 +17,27 @@ export default props => {
       noValidate
       onSubmit={event => {
         event.preventDefault();
-        fetchMovies(1);
+        if (!searchParams.s) {
+          setValid(false);
+        } else {
+          fetchMovies(1);
+        }
       }}
     >
+      {valid}
       <TextField
         name="title"
         label="Movie title"
         value={searchParams.s || ''}
-        onChange={event =>
+        onChange={event => {
+          setValid(true);
           dispatch({
             type: 'setSearchParams',
             payload: { ...searchParams, s: event.target.value }
-          })
-        }
+          });
+        }}
+        error={!valid}
+        helperText={valid || 'Can\'t be empty'}
       />
       <TextField
         name="year"
@@ -69,7 +79,12 @@ export default props => {
           </MenuItem>
         ))}
       </TextField>
-      <Button type="submit" variant="contained" color="primary">
+      <Button
+        type="submit"
+        variant="contained"
+        color="primary"
+        disabled={!valid}
+      >
         Search
       </Button>
       <Button

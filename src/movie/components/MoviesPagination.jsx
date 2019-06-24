@@ -10,9 +10,9 @@ export default (props) => {
   return (
     <Fragment>
       {hasMovies ? (
-        <Fragment>
+        <div className="moviePagination">
           <span>
-            {searchParams.page}/{Math.ceil(totalResults / 10)} page
+            {searchParams.page} / {Math.ceil(totalResults / 10)} page
           </span>
           <Fab
             onClick={() => {
@@ -32,7 +32,7 @@ export default (props) => {
           >
             next
           </Fab>
-        </Fragment>
+        </div>
       ) : (
         ''
       )}
