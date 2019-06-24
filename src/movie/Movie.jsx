@@ -22,14 +22,20 @@ export default ({
   );
 
   return (
-    <Card>
+    <Card className="movieDetails">
       <h1>{movie.Title}</h1>
-      <div>
-        {Object.keys(movie).map(key => (
-          <div>{key === 'Ratings' ? '' : `${key}: ${movie[key]}`}</div>
-        ))}
+      <div className="content">
+        <img src={movie.Poster} alt="No Iamge" />
+        <div>
+          {Object.keys(movie).map(key => (
+            <div>
+              <span>Year:</span>
+              <span>{movie['Year']}</span>
+            </div>
+          ))}
+        </div>
       </div>
-      <Button>
+      <Button variant="outlined">
         <Link to="/movie">Back</Link>
       </Button>
     </Card>

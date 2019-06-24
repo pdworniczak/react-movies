@@ -70,6 +70,22 @@ footer {
   height: 7em;
 }
 
+.movieDetails {
+  display: flex;
+  flex-direction: column;
+  width: $component-width;
+  margin: 1rem;
+
+  .content {
+    display: flex;
+    padding: 1rem;
+
+    > * {
+      margin: 0.5rem;
+    }
+  }
+}
+
 .moviePagination {
   button {
     margin: 0 0.5em;
@@ -84,10 +100,20 @@ footer {
 
   .searchMovie * {
     margin: 0.5em 0 0.3em 0;
+    width: 16rem;
   }
 
   .movie {
     width: auto;
+  }
+
+  .movieDetails {
+    width: auto;
+
+    .content {
+      display: flex;
+      flex-direction: column;
+    }
   }
 }
 
