@@ -37,10 +37,17 @@ function App() {
       </nav>
       <main>
         <Switch>
-          <Route path="/" exact />
+          <Route
+            path="/"
+            exact
+            component={() => (
+              <article>
+                <h1>Welcome</h1>
+              </article>
+            )}
+          />
           <Route path="/movie" exact component={Movies} />
           <Route path="/movie/:imdbID" component={Movie} />
-          <Route path="/test1/" component={() => <div>test</div>} />
         </Switch>
       </main>
       <footer>movie@com</footer>

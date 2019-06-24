@@ -3,7 +3,7 @@ import { Card } from '@material-ui/core';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
-import movieService from './service';
+import movieService from './services';
 
 export default ({
   match: {

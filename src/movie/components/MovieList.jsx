@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
-import Card from '@material-ui/core/Card';
 import { withRouter } from 'react-router-dom';
+import Card from '@material-ui/core/Card';
+import MovieIcon from '@material-ui/icons/Movie';
 
 export default withRouter(({ movies, history }) => {
   return (
@@ -8,22 +9,23 @@ export default withRouter(({ movies, history }) => {
       {movies.map((movie, index) => (
         <Card
           key={index}
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            cursor: 'poiner',
-            marginBottom: '.5em'
-          }}
+          className="movie"
           onClick={() => {
-            console.log(movie.imdbID);
             history.push(`movie/${movie.imdbID}`);
           }}
         >
           <span>
             {index + 1}: {movie.Title} {movie.Year}
           </span>
-          <img style={{ width: '4em' }} src={movie.Poster} alt={movie.Title} />
+          {movie.Poster === 'N/A' ? (
+            <MovieIcon style={{ width: '4em' }} />
+          ) : (
+            <img
+              style={{ width: '4em' }}
+              src={movie.Poster}
+              alt={movie.Title}
+            />
+          )}
         </Card>
       ))}
     </Fragment>
